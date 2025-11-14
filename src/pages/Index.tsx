@@ -393,42 +393,40 @@ const Index = () => {
                 </div>
               </div>
               <div className="hidden sm:flex items-center gap-2 ml-auto">
-                
+                <Button
+                  variant="destructive"
+                  className="px-3 py-1 text-sm emergency-pulse flex items-center gap-2"
+                  onClick={() => handleSendMessage("What are the emergency symptoms I should watch out for? When should I seek immediate medical attention?")}
+                >
+                  <AlertCircle className="h-4 w-4" />
+                  <span className="hidden md:inline">Emergency Guide</span>
+                </Button>
               </div>
               {/* Quick Tools: horizontal on md+, dropdown on small screens */}
               <div className="ml-4 hidden md:flex items-center gap-2">
-                <Tooltip>
-                  <TooltipTrigger asChild>
-                    <Button
-                      variant="ghost"
-                      className="px-3 py-1 text-sm emergency-pulse"
-                      onClick={() => handleSendMessage("What are the emergency symptoms I should watch out for? When should I seek immediate medical attention?")}
-                    >
-                      🚨 Emergency
-                    </Button>
-                  </TooltipTrigger>
-                  <TooltipContent>Emergency guide — use when immediate symptoms appear</TooltipContent>
-                </Tooltip>
-
-                <Tooltip>
-                  <TooltipTrigger asChild>
-                    <Button variant="ghost" className="px-3 py-1 text-sm" onClick={() => handleSendMessage("I want to check my symptoms and get medical advice")}>
-                      🌡️ Symptoms
-                    </Button>
-                  </TooltipTrigger>
-                  <TooltipContent>Run a symptom assessment</TooltipContent>
-                </Tooltip>
-
+                {/* Other quick tools (medication, follow-up) remain here */}
                 <Tooltip>
                   <TooltipTrigger asChild>
                     <Button variant="ghost" className="px-3 py-1 text-sm" onClick={() => handleSendMessage("I need information about medications and dosage")}>
-                      💊 follow ups and Doses
+                      💊 Medication
                     </Button>
                   </TooltipTrigger>
                   <TooltipContent>Get medication and dosage guidance</TooltipContent>
                 </Tooltip>
 
-                
+
+                {/* Symptoms quick-tool removed by request */}
+
+                <Tooltip>
+                  <TooltipTrigger asChild>
+                    <Button variant="ghost" className="px-3 py-1 text-sm" onClick={() => handleSendMessage("I need information about medications and dosage")}>
+                      💊 follow ups and doses
+                    </Button>
+                  </TooltipTrigger>
+                  <TooltipContent>Get medication and dosage guidance</TooltipContent>
+                </Tooltip>
+
+              
               </div>
 
               <div className="ml-2 md:hidden">
@@ -443,7 +441,6 @@ const Index = () => {
                     <DropdownMenuSeparator />
                     <DropdownMenuItem onSelect={() => handleSendMessage("What are the emergency symptoms I should watch out for? When should I seek immediate medical attention?")}>🚨 Emergency Guide</DropdownMenuItem>
                     <DropdownMenuItem onSelect={() => navigate('/doctor')}>👩‍⚕️ Doctor Consultation</DropdownMenuItem>
-                    <DropdownMenuItem onSelect={() => handleSendMessage("I want to check my symptoms and get medical advice")}>🌡️ Symptom Assessment</DropdownMenuItem>
                     <DropdownMenuItem onSelect={() => handleSendMessage("I need information about medications and dosage")}>💊 Medication Information</DropdownMenuItem>
                     <DropdownMenuItem onSelect={() => handleSendMessage("What are some general health tips and preventive measures?")}>🩺 Health & Prevention</DropdownMenuItem>
                     <DropdownMenuItem onSelect={() => handleSendMessage("When should I follow up with a healthcare provider?")}>⏱️ Follow-up Guidance</DropdownMenuItem>
@@ -459,6 +456,16 @@ const Index = () => {
               <Stethoscope className="h-4 w-4" />
               <span className="hidden md:inline">Consult Doctor</span>
             </Button>
+            {/* Mobile emergency icon */}
+            <Button
+              variant="destructive"
+              size="icon"
+              onClick={() => handleSendMessage("What are the emergency symptoms I should watch out for? When should I seek immediate medical attention?")}
+              className="sm:hidden mr-2"
+              title="Emergency Guide"
+            >
+              <AlertCircle className="h-5 w-5 text-red-600" />
+            </Button>
             <Button 
               variant="ghost"
               size="icon"
@@ -468,6 +475,7 @@ const Index = () => {
             >
               <Stethoscope className="h-5 w-5 text-blue-600" />
             </Button>
+            
           </div>
         </div>
       </header>

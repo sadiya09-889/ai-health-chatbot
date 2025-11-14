@@ -93,21 +93,7 @@ export const WelcomeScreen = ({ onQuickAction }: WelcomeScreenProps) => {
 
       {/* Main Content Section */}
       <div className="flex-1 flex flex-col items-center py-8 md:py-12 px-6">
-        {/* Emergency Banner */}
-        <div className="w-full max-w-4xl mb-8">
-          <Button 
-            variant="destructive"
-            size="lg"
-            className="w-full h-14 text-lg font-semibold shadow-lg hover:shadow-xl transition-all"
-            onClick={() => onQuickAction("What are the emergency symptoms I should watch out for? When should I seek immediate medical attention?")}
-          >
-            <AlertTriangle className="h-5 w-5 mr-2" />
-            🚨 Emergency Medical Guide
-          </Button>
-          <p className="text-xs text-slate-600 mt-2 text-center">
-            For life-threatening emergencies, call your local emergency services immediately (911 in the US)
-          </p>
-        </div>
+        {/* Emergency Banner moved to top-right nav per request */}
 
         {/* Quick Actions Grid */}
         <div className="w-full max-w-4xl">
